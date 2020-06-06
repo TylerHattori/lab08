@@ -13,8 +13,6 @@ using namespace std;
 bool isAnagram(string s1, string s2){
   sort(s1.begin(), s1.end());
   sort(s2.begin(), s2.end());
-    transform(s1.begin(), s1.end(), s1.begin(), ::toupper);
-    transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
   for (int i = 0; i < s1.length(); i++)
   {
     if (isspace(s1[i]))
@@ -29,7 +27,7 @@ bool isAnagram(string s1, string s2){
     return false;
   for (int i = 0; i < s1.length(); i++)
   {
-    if (s1[i] != s2[i])
+    if (s1[i] != s2[i] && (toupper(s1[i]) != toupper(s2[i])))
       return false;
   }
   return true;
@@ -40,11 +38,9 @@ bool isAnagram(string s1, string s2){
  *You should provide a recursive solution*/
 bool isPalindrome(const string s1){
   string s = s1;
-    transform(s.begin(), s.end(), s.begin(), ::toupper);
   for (int i = 0; i < s.length()/2 - 1; i++)
   {
-    s[s.length()-1-i] = tolower(s[s.length()-1-i]);
-    if (s[i] != s[s.length()-1-i])
+    if (s[i] != s[s.length()-1-i] && (toupper(s[i]) != toupper(s[s.length()-1-i])))
       return false;
   }
   return true;
