@@ -28,8 +28,8 @@ bool isAnagram(string s1, string s2){
     return false;
   for (int i = 0; i < s1.length(); i++)
   {
-    s1[i] = tolower(s1[i]);
-    s2[i] = tolower(s2[i]);
+    transform(s1.begin(), s1.end(), s1.begin(), ::toupper);
+    transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
     if (s1[i] != s2[i])
       return false;
   }
@@ -43,7 +43,7 @@ bool isPalindrome(const string s1){
   string s = s1;
   for (int i = 0; i < s.length()/2 - 1; i++)
   {
-    s[i] = tolower(s[i]);
+    transform(s.begin(), s.end(), s.begin(), ::toupper);
     s[s.length()-1-i] = tolower(s[s.length()-1-i]);
     if (s[i] != s[s.length()-1-i])
       return false;
