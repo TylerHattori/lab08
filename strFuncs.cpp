@@ -47,17 +47,23 @@ bool isAnagram(string s1, string s2){
  * Postcondition: Returns true if s1 is a palindrome, false otherwise
  *You should provide a recursive solution*/
 bool isPalindrome(const string s1){
-  if (s1.length() == 1)
+  string s = s1;
+  for (int i = 0; i < s.length(); i++)
+  {
+      s[i] = toupper(s[i]);
+  }
+
+  if (s.length() == 1)
     return true;
-  else if (s1.length() == 2)
-    if (s1[0] == s1[1])
+  else if (s.length() == 2)
+    if (s[0] == s[1])
       return true;
     else
       return false;
     
-  if (s1[0] != s1[s1.length()-1])
+  if (s[0] != s[s.length()-1])
     return false;
-  return isPalindrome(s1.substr(1,s1.length()-2));
+  return isPalindrome(s.substr(1,s.length()-2));
 }
 
 
