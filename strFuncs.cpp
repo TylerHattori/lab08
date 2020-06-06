@@ -16,8 +16,8 @@ bool isAnagram(string s1, string s2){
   sort(s2.begin(), s2.end());
   for (int i = 0; i < s1.length(); i++)
   {
-    if (isspace(s1[i]) || isspace(s2[i]) || s2[i] == NULL)
-      continue;
+    s1[i] = tolower(s1[i]);
+    s2[i] = tolower(s2[i]);
     if (s1[i] != s2[i])
       return false;
   }
@@ -28,9 +28,11 @@ bool isAnagram(string s1, string s2){
  * Postcondition: Returns true if s1 is a palindrome, false otherwise
  *You should provide a recursive solution*/
 bool isPalindrome(const string s1){
-  for (int i = 0; i < s1.length()/2 - 1; i++)
+  string s = s1;
+  for (int i = 0; i < s.length()/2 - 1; i++)
   {
-    if (s1[i] != s1[s1.length()-1-i])
+    s[i] = tolower(s[i]);
+    if (s[i] != s[s.length()-1-i])
       return false;
   }
   return true;
