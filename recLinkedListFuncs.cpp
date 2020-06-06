@@ -16,7 +16,7 @@ int recursiveSum(Node* head) {
 //return the largest value in the linked list using a recursive approach
 //you may assume the list has at least one element
 int recursiveLargestValue(Node* head) {
-  if (head==0) return 0;
+  if (head==0) return -100000;
   int max = head->data;
   double num = recursiveLargestValue(head->next);
   if (num > max) max = num;
